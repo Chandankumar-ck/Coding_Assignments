@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Container for user cards */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for each user card */
+.usercard {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Avatar image styling */
+.usercard img.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Username styling */
+.usercard h3.userName {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Email styling */
+.usercard p.Email {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Fetch button styling */
+button#fetch-user-btn {
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for fetch button */
+button#fetch-user-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}

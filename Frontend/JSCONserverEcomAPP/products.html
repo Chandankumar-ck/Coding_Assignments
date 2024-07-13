@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #cont {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            width: 80%;
+            margin: auto;
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        #cont > div {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        #cont > div > img {
+            width: 60px;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin-top: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #user {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        #user > button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #user > button.admin-panel-btn {
+            background-color: #28a745;
+        }
+
+        h5 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="user">
+        <h4 id="name"></h4>
+        <h5 id="total"></h5>
+        <button onclick="logout()">Logout</button>
+        <button class="admin-panel-btn" onclick="redirectToAdmin()">Admin Panel</button>
+        <button onclick="goToCart()">Go To Cart</button>
+    </div>
+    <div id="cont"></div>
+
+    <script>
+        // Retrieve loginUser from localStorage
+        let loginUser = JSON.parse(localStorage.getItem("loginUser"));
+
+        // Display user's name
+        document.getElementById("name").textContent = `Welcome ${loginUser.name}`;
+
+        // Function to fetch and display products from server
+        async function getData() {
+            try {
+                let res = await fetch("http://localhost:3000/products");
+                let data = await res.json();
+                displayData(data);
+                totalCartValue();
+            } catch (error) {
+                console.error("Error fetching products:", error);
+                alert("Failed to fetch products. Please try again later.");
+            }
+        }
+
+        // Display product cards
+        function displayData(arr) {
+            let cont = document.getElementById("cont");
+            arr.forEach((el, i) => {
+                let card = document.createElement("div");
+                let img = document.createElement("img");
+                img.src = el.src;
+                let h3 = document.createElement("h3");
+                h3.textContent = `Title: ${el.title}`;
+                let h4 = document.createElement("h4");
+                h4.textContent = `Price: ${el.price}`;
+                let h5 = document.createElement("h5");
+                h5.textContent = `Ratings: ${el.ratings}`;
+                let addBtn = document.createElement("button");
+                addBtn.textContent = "Add to Cart";
+                addBtn.addEventListener("click", function () {
+                    addfn(el);
+                });
+                let delBtn = document.createElement("button");
+                delBtn.textContent = "Delete";
+                delBtn.addEventListener("click", function () {
+                    deleteProduct(el);
+                });
+                card.append(img, h3, h4, h5, addBtn, delBtn);
+                cont.append(card);
+            });
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem("loginUser");
+            alert("Logged out successfully.");
+            window.location.href = "index.html";
+        }
+
+        // Redirect to cart page
+        function goToCart() {
+            window.location.href = 'cart.html';
+        }
+
+        // Redirect to admin panel
+        function redirectToAdmin() {
+            window.location.href = 'adminpanel.html';
+        }
+
+        // Add product to cart
+        async function addfn(el) {
+            try {
+                let res = await fetch("http://localhost:3000/allUsersCart");
+                let data = await res.json();
+
+                if (!data[loginUser.name]) {
+                    data[loginUser.name] = [];
+                }
+                data[loginUser.name].push(el);
+
+                await fetch("http://localhost:3000/allUsersCart", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                console.log("Product added to cart");
+                alert("Product added to cart");
+                totalCartValue();
+            } catch (error) {
+                console.error("Error adding product to cart:", error);
+                alert("Failed to add product to cart.");
+            }
+        }
+
+        // Calculate total cart value
+        async function totalCartValue() {
+            try {
+                let res = await fetch("http://localhost:3000/allUsersCart");
+                let data = await res.json();
+
+                if (!data[loginUser.name] || data[loginUser.name].length === 0) {
+                    document.getElementById("total").textContent = `Your Cart is empty.`;
+                } else {
+                    let sum = data[loginUser.name].reduce((total, product) => total + product.price, 0);
+                    document.getElementById("total").textContent = `Your Total Cart Value is Rs. ${sum}`;
+                }
+            } catch (error) {
+                console.error("Error calculating total cart value:", error);
+                document.getElementById("total").textContent = `Unable to retrieve cart data.`;
+            }
+        }
+
+        // Delete product from server and update UI
+        async function deleteProduct(product) {
+            try {
+                let res = await fetch("http://localhost:3000/allUsersCart");
+                let data = await res.json();
+
+                if (data[loginUser.name]) {
+                    data[loginUser.name] = data[loginUser.name].filter(p => p.title !== product.title); // Assuming title is unique for products
+                    await fetch("http://localhost:3000/allUsersCart", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    console.log("Product deleted from cart");
+                    alert("Product deleted from cart");
+                    totalCartValue();
+                } else {
+                    console.error("User's cart data not found.");
+                    alert("User's cart data not found. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error deleting product from cart:", error);
+                alert("Failed to delete product from cart.");
+            }
+        }
+
+        // Fetch initial data on page load
+        getData();
+    </script>
+</body>
+</html>

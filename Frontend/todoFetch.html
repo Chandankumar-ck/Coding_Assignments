@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch TODO</title>
+    <style>
+        /* CSS styles for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: aqua;
+            padding: 10px;
+            margin-top: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        .box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .box h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .box p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Project Overview: Fetch TODO -->
+    <h2>Fetch TODO</h2>
+    <p>This page fetches and displays TODO items from a remote API. Each TODO item is rendered as a card with a checkbox, title, and completion status.</p>
+
+    <div class="container">
+        <!-- Data will be dynamically added here -->
+    </div>
+
+    <script>
+        // JavaScript to fetch and display TODO items
+        let container = document.querySelector('.container');
+
+        // Function to fetch data from the provided URL/API
+        function getData(URL) {
+            fetch(URL)
+            .then(function(res){
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json(); 
+            })
+            .then(function(res){
+                console.log(res); 
+                showData(res); // Call function to display data
+            })
+            .catch(function(err){
+                console.error(err); // Log and handle any errors during fetch
+                container.innerHTML = `<p>Error fetching data: ${err.message}</p>`; // Display error message on failure
+            });
+        }
+
+        // Function to display data in the DOM
+        function showData(array) {
+            array.forEach(function(ele) {
+                let box = document.createElement('div'); // Create a new <div> for each TODO item (card)
+                box.className = 'box'; 
+
+                let checkbox = document.createElement('input');
+                checkbox.type = 'checkbox'; // Create a checkbox
+                checkbox.checked = ele.completed; // Set the checkbox based on the completed status
+                
+                let h3 = document.createElement('h3'); 
+                h3.innerHTML = ele.title; // Set the inner HTML of <h3> to the TODO title
+
+                let p = document.createElement('p'); 
+                p.innerHTML = `Completed: ${ele.completed}`; // Set the inner HTML of <p> to display the TODO completed status
+
+                box.append(checkbox, h3, p); // Append checkbox, <h3> and <p> to the <div> box
+                container.append(box); // Append the <div> box to the main container
+            });
+        }
+
+        // Initial call to fetch data when the page loads
+        getData('https://jsonplaceholder.typicode.com/todos'); // Call the getData function with the API URL
+    </script>
+</body>
+</html>

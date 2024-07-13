@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School API</title>
+</head>
+<body>
+    <!-- Project Overview: School API -->
+    <h2>School API</h2>
+    <p>This page demonstrates a simple School API using JavaScript. It calculates department counts, finds the top student in a specific course, and adds a new department to the school object.</p>
+
+    <div id="output">
+        <!-- Results will be displayed here -->
+    </div>
+
+    <style>
+        /* Optional: You can add CSS styles here for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        #output {
+            border: 1px solid #ccc; 
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #output h3 {
+            margin-top: 0;
+        }
+
+        #output p {
+            margin-bottom: 10px;
+        }
+
+        #output pre {
+            white-space: pre-wrap;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+
+    <script>
+        // School object containing school details
+        const school = {
+            name: "XYZ School",
+            establishYear: 1990,
+            departments: {
+                math: { teachers: 5, students: 150 },
+                science: { teachers: 4, students: 120 },
+                history: { teachers: 3, students: 100 },
+                english: { teachers: 4, students: 130 },
+            },
+            courses: ["math", "science", "history", "english"],
+            students: [
+                { name: "Alice", className: "Grade 5", scores: { math: 95, science: 88, history: 85, english: 92 } },
+                { name: "Bob", className: "Grade 4", scores: { math: 80, science: 78, history: 92, english: 85 } },
+                { name: "Charlie", className: "Grade 5", scores: { math: 88, science: 90, history: 78, english: 88 } },
+                { name: "Diana", className: "Grade 4", scores: { math: 92, science: 85, history: 88, english: 90 } },
+            ],
+        };
+
+        // Function to calculate counts for math and history departments
+        function countCalculation(school) {
+            const { math, history } = school.departments;
+            const mathTeachersCount = math.teachers;
+            const mathStudentsCount = math.students;
+            const historyTeachersCount = history.teachers;
+            const historyStudentsCount = history.students;
+            return { mathTeachersCount, mathStudentsCount, historyTeachersCount, historyStudentsCount };
+        }
+
+        // Function to find top student based on a given course
+        function findTopStudent(school, courseName) {
+            let topStudent = null;
+            let topScore = -1;
+
+            school.students.forEach(student => {
+                if (student.scores[courseName] > topScore) {
+                    topScore = student.scores[courseName];
+                    topStudent = student;
+                }
+            });
+
+            return topStudent;
+        }
+
+        // Function to add a new department to the school
+        function addNewDept(school, newDepartment) {
+            const updatedDepartments = { ...school.departments, ...newDepartment };
+            return { ...school, departments: updatedDepartments };
+        }
+
+        // Display results in the HTML
+        function displayResults() {
+            const countResults = countCalculation(school);
+            const topMathStudent = findTopStudent(school, "math");
+            const updatedSchoolWithDept = addNewDept(school, { art: { teachers: 2, students: 50 } });
+
+            const outputElement = document.getElementById("output");
+            outputElement.innerHTML = ''; // Clear previous content
+
+            // Display count results
+            outputElement.innerHTML += `<h3>Department Counts:</h3>`;
+            outputElement.innerHTML += `<p>Math Teachers: ${countResults.mathTeachersCount}, Students: ${countResults.mathStudentsCount}</p>`;
+            outputElement.innerHTML += `<p>History Teachers: ${countResults.historyTeachersCount}, Students: ${countResults.historyStudentsCount}</p>`;
+
+            // Display top student in math
+            if (topMathStudent) {
+                outputElement.innerHTML += `<h3>Top Math Student:</h3>`;
+                outputElement.innerHTML += `<p>Name: ${topMathStudent.name}, Grade: ${topMathStudent.className}, Score: ${topMathStudent.scores.math}</p>`;
+            } else {
+                outputElement.innerHTML += `<h3>No students found for Math</h3>`;
+            }
+
+            // Display updated school with new department
+            outputElement.innerHTML += `<h3>School with Added Department:</h3>`;
+            outputElement.innerHTML += `<pre>${JSON.stringify(updatedSchoolWithDept, n
