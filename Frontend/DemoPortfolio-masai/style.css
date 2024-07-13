@@ -1,0 +1,122 @@
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: "Poppins", sans-serif;
+            font-style: normal;
+
+        }
+
+        #nav_title {
+            background-color: #333333;
+            font-size: 45px;
+            font-weight: 500;
+            color: #00BCD4;
+            text-align: center;
+            padding: 10px;
+            height: 80px;
+            width: 100%;
+            
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 8px;
+            height: 40px;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: #444444;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+          
+        }
+
+        .nav_menu {
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+            font-style: none;
+            text-decoration: none;
+
+        }
+        .nav_menu:hover{
+            color: aqua;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .body{
+            padding: 20px;
+        }
+        .menu_details{
+            display: flex;
+            justify-content: space-between;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 8px 10px 8px 10px;
+            width: 95%;
+            margin-bottom: 40px;
+            height: max-content;
+           width: 98%;
+           border-radius: 8px;
+
+        }
+        .menu_image{
+           width: 100%;
+           text-align: left;
+           padding-left: 60px;
+           margin: auto;
+
+
+        }
+        .Home_details h2{
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 30px;
+            text-align: center;
+            padding: 8px;
+            width: 50%;
+        }
+        .Education_details h2{ 
+            font-weight: bold;
+            color: #E91E63;
+            font-size: 30px;
+            text-align: center;
+            padding: 8px;
+            width: 50%;
+        }
+        .Projects_details h2{
+            font-weight: bold;
+            color: #1e21e9;
+            font-size: 30px;
+            text-align: center;
+            padding: 8px;
+            width: 50%;
+        }
+        .Skills_details h2{
+            font-weight: bold;
+            color: #1ee9bd;
+            font-size: 30px;
+            text-align: center;
+            padding: 8px;
+            width: 50%;
+        }
+        .Contactme_details h2{
+            font-weight: bold;
+            color: #47e91e;
+            font-size: 30px;
+            text-align: center;
+            padding: 8px;
+            width: 50%;
+        }
+        p{
+            padding: 20px 8px;
+            font-size: 20px ;
+        }
+        @media all and (min-width: 300px) and (max-width: 767px){
+            .menu_details{
+                display: grid;
+                flex-wrap: wrap;
+                grid-template-columns: repeat(1, 1fr);
+                
+    }
