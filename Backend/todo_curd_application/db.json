@@ -1,0 +1,9 @@
+{
+    "todos" : [
+      {"id": 1, "task": "Self-help book reading", "status": true},
+      {"id": 2, "task": "Complete the assignment", "status": false},
+      {"id": 3, "task": "Revision frontend leacture", "status": true},
+      {"id": 4, "task": "Communication skill practice", "status": false}
+     
+    ]
+  }
