@@ -1,0 +1,33 @@
+.container{
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    border: 2px dashed black;
+}
+h2{
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+}
+p{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+@media all and (min-width : 481px){
+    .container {
+        background-color: aqua;
+    }
+}
+
+@media all and (min-width : 768px){
+    .container {
+        background-color: rgb(106, 255, 0);
+    }
+}
+
+@media all and (min-width : 1024px){
+    .container {
+        background-color: rgb(234, 0, 255);
+    }
+}
