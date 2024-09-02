@@ -1,0 +1,216 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+
+}
+.brand-logo{
+    margin-right: 30%;
+    margin-left: 20px;
+}
+.brand-logo > img {
+    height: 50px;
+    width: 80px;
+
+}
+
+#nav-menu {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+    
+    
+}
+#nav-menu >p >a {
+    text-decoration: none;
+    cursor: pointer;
+    color : black;
+}
+#nav-menu > p {
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
+    
+    align-items: center;
+    padding: 16px;
+}
+
+#nav-menu > p:hover {
+    background-color: rgb(195, 195, 5);
+}
+#nav-button{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 8px;
+    margin-left: 50px;
+}
+#nav-button > img {
+    height: 25px;
+    width: 25px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+#nav-button> a > button {
+    align-items: center;
+    padding: 8px;
+    width: fit-content;
+    color: red;
+    border: 1px solid red;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+main > h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 45px;
+}
+.features{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+    flex-wrap: wrap;
+    padding: 10px 80px;
+    
+}
+.features-card{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 25%;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    gap: 8px;
+    
+}
+.features-card > h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
+.features-card > p {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: justify;
+    margin: 10px 2px 10px 0;
+
+}
+h2 {
+    margin: 10px 20px;
+}
+
+.blog{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.blog-card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 30%;
+    height: 450px;
+    border-radius: 8px;
+    margin-top: 40px;
+    
+}
+.blog-card > img {
+    width: 100%;
+    height: 60%;
+}
+.blog-card > h2 {
+    font-size: 14px;
+    text-align: left;
+    font-weight: bold;
+}
+.blog-card > p {
+    font-size: 12px;
+    text-align: left;
+
+}
+
+#form-container{
+    background-color: yellow;
+    margin-top: 20px;
+    padding:30px 0;
+
+    
+    
+}
+
+#create-account{
+    height: 500px;
+    width: 350px;
+   margin: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+
+}
+
+#create-account > h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+#create-account > p {
+    font-size: 13px;
+    text-align:center;
+    margin-bottom: 8px;
+}
+
+#create-account > form > label {
+    font-size: 13px; 
+    margin-top: 20px;   
+
+}
+input {
+    width: 95%;
+    height: 28px;
+    margin: 5px 0px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+
+}
+
+form > button {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    font-size: 15px;
+    background-color: aqua;
+    border-radius: 8px;
+    text-align: center;
+    margin: 15px 0px;
+    cursor: pointer;
+}
+span > input{
+    text-align: center;
+    height: 13px;
+    width: 13px;
+    margin: auto;
+}
+
+footer {
+    background-color: grey;
+    text-align: center;
+    height: 80px;
+    padding: 30px 0;
+    
+}
+footer > p {
+    margin: auto;
+    text-align: center;
+    padding: 15px;
+}
+
