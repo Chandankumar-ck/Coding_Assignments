@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #8e44ad, #f39c12);
+}
+
+.container {
+    width: 800px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.content-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    position: relative;
+}
+
+.card-content {
+    width: 50%; /* Each side (left and right) will take up half of the card's width */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.left-content {
+    background-color: #8e44ad;
+    color: white;
+    text-align: center;
+    transition: background-color 0.5s ease;
+}
+
+.right-content {
+    background-color: white;
+    text-align: center;
+    color: #8e44ad;
+    transition: background-color 0.5s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(50px);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    width: 100%; /* Full width inside the card half */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.submit-btn, .signup-btn, .login-btn {
+    background-color: #8e44ad;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+.submit-btn:hover, .signup-btn:hover, .login-btn:hover {
+    background-color: #722d89;
+}
+
+.submit-btn:active, .signup-btn:active, .login-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.forgot-password {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ddd;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: #bbb;
+}
+
+/* Style for the remaining content to take half the card size */
+.card .other-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.card .other-content p {
+    color: #8e44ad;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.card .other-content button {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.card .other-content button:hover {
+    background-color: #722d89;
+}
