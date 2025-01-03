@@ -1,0 +1,102 @@
+*{
+    margin: 0px;
+    padding: 5px;
+    font-weight: 400;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#navbar{
+    background: #e7bb69;
+    padding: 20px 0px ;
+    margin: auto;
+    
+}
+#navbar > h1 {
+    
+    color: blueviolet;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+.menu{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.menu > a {
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: bold;
+    color: navy;
+    margin: 5px 0 5px 0;
+}
+h3{
+    font-size: 18px;
+    font-weight: bold;
+    color:black;
+    margin: 5px 0 5px 0;
+}
+ #aboutMe{
+    padding: 15px 5px;
+    border: 1px solid black;
+    
+ }
+ 
+ p{
+    font-weight: 400;
+    font-size: 13px;
+    color: black;
+    margin: 5px 0 5px 0;
+    
+ }
+img {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px 0px;
+    height: 150px;
+    width: 150px;
+}
+
+#Projects{
+    padding: 20px 10px;
+
+}
+.Project-container{
+    border: 1px solid black;
+    padding: 10px 15px;
+}
+
+footer{
+    background-color: orange;
+    padding: 15px 0 ;
+}
+
+.footer{
+    color: white;
+    text-align: center;
+}
+
+
+#contact 
+{
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    padding: 20px 0px;
+
+}
+#contact >input {
+    padding-left: 8px;
+    margin: auto;
+}

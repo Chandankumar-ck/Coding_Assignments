@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <h1> Welcome to Portfolio</h1>
+        <div class="menu">
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <div id="aboutMe">
+        <h2>About Me</h2>
+        <p>Hello I'm a web developer with a passion for creating functional and beuatiful web application</p>
+        <img width="100" height="100" src="https://img.icons8.com/carbon-copy/100/228BE6/user.png"
+            alt="A picture of me" />
+
+    </div>
+<!-- project section starts here -->
+    <div id="Projects">
+        <h2>Projects</h2>
+
+        <!-- first project container starts here -->
+        <div class="Project-container">
+            <h3>Project 1 : Personal Blog</h3>
+            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/228BE6/project-management.png"
+                alt="projectScreenshot of Blog site" />
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est assumenda esse corrupti doloremque repellat
+                consequuntur. Reprehenderit exercitationem dolorum architecto, facere reiciendis eos ipsa quia error
+                fuga quam, eaque eum omnis.</p>
+            <a href="#" target="_blank"> View Project</a>
+            <ul>
+                <li>Technologies Used : </li>
+                <li>
+                    <ul list-style-type: disc;>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Java Sscript</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- second project container starts here -->
+        <div class="Project-container">
+            <h3>Project 2 : Ecommerce Site</h3>
+            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/228BE6/project-management.png"
+                alt="projectScreenshot of Ecommerce Site" />
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est assumenda esse corrupti doloremque repellat
+                consequuntur. Reprehenderit exercitationem dolorum architecto, facere reiciendis eos ipsa quia error
+                fuga quam, eaque eum omnis.</p>
+            <a href="#" target="_blank"> View Project</a>
+            <ul>
+                <li>Technologies Used : </li>
+                <li list-style-type: none;>
+                    <ul list-style-type: disc;>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Java Sscript</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- contact form starts here -->
+     <div id="contact">
+        <form action="db.php"> 
+            <label for="Name">Full Name :</label>
+            <input type="text" id="Name">
+            <label for="email">Email :</label>
+            <input type="email" id="email">
+            <label for="message">Message</label>
+            <textarea name="Message" id="Message">
+                message...
+            </textarea>
+            <button type="submit" id="submit_button">submit</button>
+        </form>
+     </div>
+
+     <footer>
+        <div class="footer">
+            <p>Copyright &copy; 2024 My Portfolio</p> 
+            <p>
+                Follow me on : 
+                <a href="www.twitter.com/" target="_blank">Twitter</a> ||
+                <a href="www.github.com/" target="_blank">Github</a>
+            </p>
+        </div>
+     </footer>
+</body>
+
+</html>
